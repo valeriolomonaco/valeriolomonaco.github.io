@@ -10,35 +10,38 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
 
     <h2 class="archive__item-title" itemprop="headline">
+      <strong>{{ title }}</strong>
       {% if post.external_url %}
-        <a href="{{ post.external_url }}">{{ title }}</a>
+        <a href="{{ post.external_url }}" target="_blank" rel="noopener" style="font-size: 0.75em; font-weight: normal;"> [link]</a>
       {% elsif post.paperurl %}
-        <a href="{{ post.paperurl }}">{{ title }}</a>
-      {% else %}
-        {{ title }}
+        <a href="{{ post.paperurl }}" target="_blank" rel="noopener" style="font-size: 0.75em; font-weight: normal;"> [link]</a>
       {% endif %}
     </h2>
 
-    {% if post.journal %}
-      <p>{{ post.journal }}</p>
-    {% endif %}
+    <div style="padding-left: 1.4em;">
 
-    {% unless post.coverage == blank or post.coverage == '' %}
-      <p>→ Coverage: {{ post.coverage }}</p>
-    {% endunless %}
+      {% if post.journal %}
+        <p style="margin: 0.2em 0;">{{ post.journal }}</p>
+      {% endif %}
 
-    {% unless post.awards == blank or post.awards == '' %}
-      <p><em>{{ post.awards }}</em></p>
-    {% endunless %}
+      {% unless post.coverage == blank or post.coverage == '' %}
+        <p style="margin: 0.2em 0;">→ Coverage: {{ post.coverage }}</p>
+      {% endunless %}
 
-    {% if post.abstract %}
-  <p style="font-size: 0.85em; margin-top: 4px;">
-    <strong>Abstract:</strong> {{ post.abstract }}
-    {% unless post.version == blank or post.version == '' %}
-      <a href="{{ post.version }}">[working paper version]</a>
-    {% endunless %}
-  </p>
-{% endif %}
+      {% unless post.awards == blank or post.awards == '' %}
+        <p style="margin: 0.2em 0;"><em>{{ post.awards }}</em></p>
+      {% endunless %}
+
+      {% if post.abstract %}
+        <p style="font-size: 0.85em; margin-top: 6px;">
+          <strong>Abstract:</strong> {{ post.abstract }}
+          {% unless post.version == blank or post.version == '' %}
+            <a href="{{ post.version }}">[working paper version]</a>
+          {% endunless %}
+        </p>
+      {% endif %}
+
+    </div>
 
   </article>
 </div>
