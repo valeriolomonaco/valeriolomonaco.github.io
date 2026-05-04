@@ -10,3 +10,5 @@
 main:
   - title: "Publications"
     url: /publications/
+  - title: "Code"          # ← add this
+    url: /code/   
