@@ -38,11 +38,11 @@ author:
   googlescholar    : "https://scholar.google.com/citations?user=1NWqHHMAAAAJ&hl=en"
   inspire-hep      : # URL
   impactstory      : # URL
-  orcid            : # URL
+  orcid            : "https://orcid.org/0009-0002-1763-6059"
   semantic         : # URL
-  ssrn             : # URL
+  ssrn             : "https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=7222976"
   pubmed           : # URL
-  researchgate     : # URL
+  researchgate     : "https://www.researchgate.net/profile/Valerio-Lo-Monaco"
   scopus           : # URL
   zotero           : # URL
 
@@ -66,7 +66,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "https://it.linkedin.com/in/vlm-phd/en"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
