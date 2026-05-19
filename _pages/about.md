@@ -16,4 +16,10 @@ I focus on three main areas:
 
 2. Decentralized finance - governance, coordination, and value creation in blockchain-based markets and organizations
 
-3. Artificial intelligence - how AI changes information production, screening, and decision-making in capital markets 
+3. Artificial intelligence - how AI changes information production, screening, and decision-making in capital markets
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;

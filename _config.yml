@@ -124,7 +124,7 @@ staticman:
       options:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
-  hide                   : true     # change to true to hide the RSS feed in the footer
+  hide                   : false    # change to true to hide the RSS feed in the footer
   path                   : # blank (default) uses feed.xml
 
 
@@ -142,14 +142,20 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Social media default site image
-og_description           :  # Social media default site image description
+og_image                 : "/images/profile2.jpg"  # Social media default site image
+og_description           : "Researcher in Finance, Management, Entrepreneurship, and Innovation at the University of Bergamo"  # Social media default site description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : Person
+  name                   : Valerio Lo Monaco
+  links:
+    - "https://scholar.google.com/citations?user=1NWqHHMAAAAJ&hl=en"
+    - "https://orcid.org/0009-0002-1763-6059"
+    - "https://www.researchgate.net/profile/Valerio-Lo-Monaco"
+    - "https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=7222976"
+    - "https://it.linkedin.com/in/vlm-phd/en"
+    - "https://github.com/valeriolomonaco"
 
 
 # Analytics

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://valeriolomonaco.com/sitemap.xml

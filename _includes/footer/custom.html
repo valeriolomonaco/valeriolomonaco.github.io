@@ -1,16 +1,16 @@
 <!-- start custom footer snippets -->
 <!-- <a href="/sitemap/">Sitemap</a> -->
-<!-- Support for MatJax -->
-<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+<!-- Support for MathJax -->
+<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" id="MathJax-script" crossorigin="anonymous"></script>
 <!-- Support for Mermaid -->
 <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';
     mermaid.initialize({startOnLoad:true, theme:'default'});
     await mermaid.run({querySelector:'code.language-mermaid'});
 </script>
 
-<div style="text-align:center; font-size:0.75em; color:#ccc; padding:0.5em 0;">
-  &copy; {{ site.time | date: '%Y' }} {{ site.name }} &nbsp;·&nbsp; Valerio Lo Monaco. Powered by Jekyll & AcademicPages.
+<div class="page__footer-custom">
+  &copy; {{ site.time | date: '%Y' }} Valerio Lo Monaco &nbsp;&middot;&nbsp; Powered by Jekyll &amp; AcademicPages.
 </div>
 <!-- end custom footer snippets -->

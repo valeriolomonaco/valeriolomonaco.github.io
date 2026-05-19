@@ -42,6 +42,14 @@
     "vendor/font-awesome/brands"
 ;
 
-.page__footer {
-  display: none !important;
+
+.page__citation {
+  font-size: smaller;
+}
+
+.page__footer-custom {
+  text-align: center;
+  font-size: 0.75em;
+  color: #ccc;
+  padding: 0.5em 0;
 }
