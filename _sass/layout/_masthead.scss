@@ -20,7 +20,8 @@
     position: absolute;
     bottom: 0;
     height: 1px;
-    background: var(--global-border-color);
+    background: var(--global-text-color-light);
+    height: 2px;
     width: 100%;
   }
 
@@ -78,4 +79,30 @@
   color: var(--global-text-color);
   border-bottom: 2px solid var(--global-text-color);
   /* No need to repeat pointer-events and cursor here */
+}
+
+.masthead__title-row {
+  padding: 0.4em 0 0;
+
+  .masthead__site-title {
+    font-family: $sans-serif-narrow;
+    font-size: $type-size-4;
+    font-weight: 700;
+    color: var(--global-masthead-link-color);
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 2px solid var(--global-text-color-light);
+    padding-bottom: 4px;
+    padding-right: 2em;
+
+    &:hover {
+      color: var(--global-masthead-link-color-hover);
+    }
+  }
+}
+
+.masthead__menu {
+  padding-left: 15%;
+  padding-top: 0.15em;
+  padding-bottom: 0.3em;
 }
