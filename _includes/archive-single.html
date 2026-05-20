@@ -9,7 +9,7 @@
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title" itemprop="headline" style="margin-left: 0; padding-left: 0;">
       <strong>{{ title }}</strong>
       {% if post.external_url %}
         <a href="{{ post.external_url }}" target="_blank" rel="noopener" style="font-size: 0.75em; font-weight: normal;"> [link]</a>
@@ -18,10 +18,10 @@
       {% endif %}
     </h2>
 
-    <div style="padding-left: 1.4em;">
+    <div style="padding-left: 0;">
 
       {% if post.journal %}
-        <p style="margin: 0.2em 0;">{{ post.journal }}</p>
+        <p style="margin: 0.2em 0;">{{ post.journal }}{% if post.coauthors %} (with {% for coauthor in post.coauthors %}{% assign coauthor_url = site.data.coauthors[coauthor] %}{% if coauthor_url and coauthor_url != "" %}<a href="{{ coauthor_url }}" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">{{ coauthor }}</a>{% else %}{{ coauthor }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}){% endif %}</p>
       {% endif %}
 
       {% unless post.coverage == blank or post.coverage == '' %}
@@ -33,7 +33,7 @@
       {% endunless %}
 
       {% if post.abstract %}
-        <p style="font-size: 0.85em; margin-top: 6px;">
+        <p style="font-size: 0.78em; margin-top: 6px; color: #444;">
           <strong>Abstract:</strong> {{ post.abstract }}
           {% unless post.version == blank or post.version == '' %}
             <a href="{{ post.version }}">[working paper version]</a>
