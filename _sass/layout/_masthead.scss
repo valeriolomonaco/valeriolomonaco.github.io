@@ -4,10 +4,10 @@
 
 .masthead {
   position: fixed;
-  background: var(--global-bg-color);
-  height: fit-content;
   top: 0;
   width: 100%;
+  background: var(--global-masthead-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
@@ -15,21 +15,22 @@
           animation-delay: 0.15s;
   z-index: 20;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    height: 1px;
-    background: var(--global-text-color-light);
-    height: 2px;
-    width: 100%;
-  }
-
+  /* one row: site title on the left, navigation and theme toggle on the right */
   &__inner-wrap {
-    @include container;
-    @include clearfix;
-    padding: 0.5em 1em;
-    font-family: $sans-serif-narrow;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: $large;
+    min-height: $masthead-height;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
+    font-family: $sans-serif;
+
+    @include breakpoint(max-width $small) {
+      gap: 1rem;
+      padding: 0 1rem;
+    }
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -45,18 +46,38 @@
   }
 }
 
+.masthead__site-title {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.125em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--global-masthead-link-color-selected);
+  white-space: nowrap;
+
+  @include breakpoint(max-width $small) {
+    font-size: 1.05em;
+  }
+
+  &:hover {
+    color: var(--global-masthead-link-color-hover);
+  }
+}
+
 .masthead__menu {
+  flex: 1 1 auto;
+  min-width: 0;
 
   ul {
     margin: 0;
     padding: 0;
-    clear: both;
     list-style-type: none;
   }
 }
 
 .masthead__menu-item {
-  background-color: var(--global-bg-color);
   display: block;
   list-style-type: none;
   white-space: nowrap;
@@ -67,42 +88,37 @@
   }
 }
 
-.masthead__menu-item.selected a {
-  color: var(--global-text-color);
-  font-weight: 700;
-  border-bottom: 2px solid var(--global-text-color);
-  pointer-events: none; /* Move this here */
-  cursor: default; /* Move this here too */
-}
+/* current page: white text with a permanent gold underline */
+.greedy-nav .masthead__menu-item.selected a {
+  color: var(--global-masthead-link-color-selected);
+  font-weight: 600;
+  pointer-events: none;
+  cursor: default;
 
-.masthead__menu-item.selected a:hover {
-  color: var(--global-text-color);
-  border-bottom: 2px solid var(--global-text-color);
-  /* No need to repeat pointer-events and cursor here */
-}
-
-.masthead__title-row {
-  padding: 0.4em 0 0;
-
-  .masthead__site-title {
-    font-family: $sans-serif-narrow;
-    font-size: $type-size-4;
-    font-weight: 700;
-    color: var(--global-masthead-link-color);
-    text-decoration: none;
-    display: inline-block;
-    border-bottom: 2px solid var(--global-text-color-light);
-    padding-bottom: 4px;
-    padding-right: 2em;
-
-    &:hover {
-      color: var(--global-masthead-link-color-hover);
-    }
+  &::before {
+    background: var(--global-accent-color);
+    -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+            transform: scaleX(1);
   }
 }
 
-.masthead__menu {
-  padding-left: 15%;
-  padding-top: 0.15em;
-  padding-bottom: 0.3em;
+.masthead__theme-toggle {
+  flex: 0 0 auto;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    color: var(--global-masthead-link-color);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--global-masthead-link-color-hover);
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
 }

@@ -3,23 +3,25 @@
     ========================================================================== */
 
 /* Color codes used for the theme */
-$primary-color              : #0ea1c5;
+$primary-color              : #569cd6;
 $gray                       : #7a8288;
 $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
 
-$background                 : #474747;
-$background-light           : mix(#fff, $background, 80%);
-$background-lighter         : mix(#fff, $background, 90%);
-$text                       : #ffffff;
-$link                       : #0ea1c5;
-$link-dark                  : mix(#000, $link, 25%);
-$link-light                 : mix(#fff, $link, 25%);
+/* Charcoal editor palette */
+$background                 : #1e1e1e;   // page
+$background-light           : #252526;   // cards
+$background-lighter         : #2d2d2d;   // table heads, code
+$background-darker          : #161616;   // masthead and footer
+$text                       : #d4d4d4;
+$link                       : #6cb6ff;
+$link-dark                  : #4a9eea;
+$link-light                 : #9cdcfe;
 
 /* Color codes used for the site */
 $danger-color               : #ee5f5b;
-$info-color                 : #2f7f93;
+$info-color                 : #569cd6;
 $notice-color               : #7a8288;
 $success-color              : #62c462;
 $warning-color              : #f89406;
@@ -28,29 +30,43 @@ $warning-color              : #f89406;
 $border-radius              : 4px;
 $box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
 $global-transition          : all 0.2s ease-in-out;
-$masthead-height            : 100px;
+$masthead-height            : 64px;
 $navicon-width              : 28px;
 $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
+/* Derived colors (computed once, then interpolated below -- Sass color
+   functions like mix() are not evaluated inside a custom property value) */
+$gold                       : #d9b46f;
+$gold-dark                  : #c9a45c;
+
 /* Dark theme for the site */
 html[data-theme="dark"] {
     --global-base-color                 : #{$primary-color};
+    --global-accent-color               : #{$gold};
+    --global-accent-dark-color          : #{$gold-dark};
+    --global-accent-soft-color          : #{rgba($gold, 0.35)};
     --global-bg-color                   : #{$background};
-    --global-footer-bg-color            : #{$background};
-    --global-border-color               : #{$light-gray};
-    --global-dark-border-color          : #{$background-light};
-    --global-code-background-color      : #fafafa;
-    --global-code-text-color            : #{$darker-gray};
-    --global-fig-caption-color          : #{$light-gray};
+    --global-card-bg-color              : #{$background-light};
+    --global-card-border-color          : #3a3a3a;
+    --global-footer-bg-color            : #{$background-darker};
+    --global-footer-text-color          : #9a9a9a;
+    --global-border-color               : #3a3a3a;
+    --global-dark-border-color          : #4a4a4a;
+    --global-code-background-color      : #{$background-lighter};
+    --global-code-text-color            : #{$text};
+    --global-fig-caption-color          : #a0a0a0;
+    --global-heading-color              : #eaeaea;
     --global-link-color                 : #{$link};
-    --global-link-color-hover           : #{$link-dark};
-    --global-link-color-visited         : #{$link-light};
-    --global-masthead-link-color        : #{$text};
-    --global-masthead-link-color-hover  : #{$primary-color};
+    --global-link-color-hover           : #{$link-light};
+    --global-link-color-visited         : #{$link};
+    --global-masthead-bg-color          : #{$background-darker};
+    --global-masthead-link-color        : #c8c8c8;
+    --global-masthead-link-color-hover  : #fff;
+    --global-masthead-link-color-selected : #fff;
     --global-text-color                 : #{$text};
-    --global-text-color-light           : #f3f3f3;
+    --global-text-muted-color           : #a6a6a6;
+    --global-text-color-light           : #8c8c8c;
     --global-thead-color                : #{$background-lighter};
 }
-

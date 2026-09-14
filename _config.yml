@@ -65,7 +65,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : "https://it.linkedin.com/in/vlm-phd/en"
+  linkedin         : # Username
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
@@ -154,7 +154,6 @@ social:
     - "https://orcid.org/0009-0002-1763-6059"
     - "https://www.researchgate.net/profile/Valerio-Lo-Monaco"
     - "https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=7222976"
-    - "https://it.linkedin.com/in/vlm-phd/en"
     - "https://github.com/valeriolomonaco"
 
 

@@ -2,8 +2,9 @@
 
 main:
   - title: "About"
-    url: /about/
+    url: /
   - title: "Publications"
     url: /publications/
-  - title: "Code"
-    url: /code/
+  # Hidden until the page has content. Uncomment to show it again.
+  # - title: "Code"
+  #   url: /code/

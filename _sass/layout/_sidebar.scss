@@ -17,10 +17,11 @@
     margin-top: 1em;
   }
 
+  /* On wide screens the sidebar is sticky (see .sticky in utilities) rather
+     than fixed: it scrolls with short pages, so nothing is ever cut off, and
+     pins to the top on long ones. The masthead offset is applied by the
+     navigation script as padding-top. */
   @media screen and (min-width: $sidebar-screen-min-width) {
-    height: 100vh;
-    overflow-y: auto;               // Add scrollbar if the sidebar is too long
-    position: fixed;
     padding-top: $masthead-height;
   }
 
@@ -140,51 +141,54 @@
    Author profile and links
    ========================================================================== */
 
-.author__avatar {
-  display: table-cell;
-  vertical-align: top;
-  width: 36px;
-  // set width only, for non-square avatars
-  // height: 36px;
+/* narrow screens: photo, text and follow button in one flex row;
+   wide screens: stacked block */
+.author__profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
   @include breakpoint($large) {
     display: block;
-    width: 130px;
-    height: 130px;
+  }
+}
+
+.author__avatar {
+  flex: 0 0 auto;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px var(--global-accent-soft-color);
+
+  @include breakpoint($large) {
+    width: 100%;
+    max-width: 170px;
+    height: auto;
+    aspect-ratio: 1 / 1;
     margin: 0 auto;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 0 3px var(--global-border-color),
-                0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 0 4px var(--global-accent-soft-color),
+                0 6px 18px rgba(0, 0, 0, 0.12);
   }
 
   img {
-    width: 130px;
-    height: 130px;
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center 5%;
     transform: scale(1.3);
     transform-origin: center 20%;
-    display: block;
-
-    @include breakpoint($large) {
-      border-radius: 0;
-    }
   }
 }
 
 .author__content {
-  display: table-cell;
-  vertical-align: top;
-  padding-left: 15px;
-  padding-right: 25px;
-  line-height: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.2;
 
   @include breakpoint($large) {
-    display: block;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
   }
 }
 
@@ -192,13 +196,20 @@
   margin: 0;
 
   @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
   }
 }
 .sidebar .author__name {
-  font-family: $sans-serif;
-  font-size: $type-size-5;
+  font-family: $serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--global-heading-color);
+
+  @include breakpoint($large) {
+    font-size: 1.35em;
+  }
 }
 
 .sidebar .author__desktop {
@@ -217,19 +228,21 @@
   }
 }
 
-.author__bio {
-  margin: 0;
+.sidebar .author__bio {
+  margin: 0.35em 0 0;
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: var(--global-text-muted-color);
 
   @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
   }
 }
 
 .author__urls-wrapper {
   position: relative;
-  display: table-cell;
-  vertical-align: middle;
+  flex: 0 0 auto;
   font-family: $sans-serif;
   z-index: 10;
   position: relative;
@@ -304,7 +317,7 @@
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: #fff transparent;
+    border-color: var(--global-bg-color) transparent;
     z-index: 1;
 
     @include breakpoint($large) {
@@ -314,6 +327,10 @@
 
   li {
     white-space: nowrap;
+
+    @include breakpoint($large) {
+      white-space: normal;
+    }
   }
 
   a {
@@ -329,5 +346,16 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+/* sidebar link list: slightly larger text, gold icons */
+.sidebar .author__urls li {
+  font-size: 0.875em;
+}
+
+.sidebar .author__urls.social-icons {
+  .fa, .fas, .fab, .far, .ai {
+    color: var(--global-accent-dark-color);
   }
 }

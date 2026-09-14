@@ -134,11 +134,11 @@
       {% for skill in cv.skills %}
       <div class="cv-skill-category">
         <h3>{{ skill.name }}</h3>
-        <ul class="cv-skill-list">
+        <div class="cv-skill-keywords">
           {% for keyword in skill.keywords %}
-          <li>{{ keyword }}</li>
+          <span class="cv-skill-keyword">{{ keyword }}</span>
           {% endfor %}
-        </ul>
+        </div>
       </div>
       {% endfor %}
     </div>
@@ -280,7 +280,11 @@
         <div class="cv-item-content">
           <div class="cv-item-title">{{ interest.name }}</div>
           {% if interest.keywords.size > 0 %}
-          <div class="cv-item-detail">{{ interest.keywords | join: ", " }}</div>
+          <div class="cv-interest-keywords">
+            {% for keyword in interest.keywords %}
+            <span class="cv-interest-keyword">{{ keyword }}</span>
+            {% endfor %}
+          </div>
           {% endif %}
         </div>
       </li>

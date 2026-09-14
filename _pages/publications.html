@@ -5,19 +5,11 @@ permalink: /publications/
 author_profile: false
 ---
 
-<style>
-  .archive {
-    float: none !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-  }
-  .list__item {
-    padding-right: 0 !important;
-  }
-</style>
-
 {% include base_path %}
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+
+<section class="card">
+  <h2 class="card__title">Journal Articles</h2>
+  {% for post in site.publications reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+</section>

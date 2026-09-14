@@ -27,12 +27,36 @@
   }
 }
 
+/* archive pages without a sidebar: one centered column instead of a
+   ten-column float next to an empty sidebar slot */
+#main > .archive:first-child {
+  float: none;
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .archive__subtitle {
+  position: relative;
   margin: 1.414em 0 0;
+  padding-left: 0.75em;
   padding-bottom: 0.5em;
   font-size: $type-size-5;
   color: var(--global-text-color-light);
-  border-bottom: 1px solid var(--global-border-color);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    bottom: 0.5em;
+    width: 4px;
+    border-radius: 2px;
+    background: var(--global-accent-color);
+  }
 
   + .list__item .archive__item-title {
     margin-top: 0.5em;
@@ -104,6 +128,109 @@
 
   .page__meta {
     margin: 0 0 4px;
+  }
+}
+
+
+/*
+   List entries inside a card (publications)
+   ========================================================================== */
+
+.card .list__item {
+  padding: 0;
+
+  & + .list__item {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--global-border-color);
+  }
+}
+
+/* Year gutter: the year sits in a fixed left column with a vertical rule
+   between it and the entry. On narrow screens the column collapses and the
+   year moves above the title. */
+.archive__item--dated {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+.archive__item-year {
+  flex: 0 0 3.25rem;
+  padding-right: 1.25rem;
+  border-right: 2px solid var(--global-accent-soft-color);
+  font-family: $sans-serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: right;
+  color: var(--global-accent-dark-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.archive__item-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@include breakpoint(max-width $small) {
+  .archive__item--dated {
+    display: block;
+  }
+
+  .archive__item-year {
+    padding-right: 0;
+    padding-bottom: 0.35rem;
+    border-right: 0;
+    text-align: left;
+  }
+}
+
+.card .archive__item-title {
+  margin: 0 0 0.35rem;
+  font-family: $sans-serif;
+  font-size: 1.05em;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--global-heading-color);
+
+  strong {
+    font-weight: 600;
+  }
+
+  a {
+    font-weight: 500;
+    color: var(--global-link-color);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* the "[link]" marker after a title */
+.archive__item-link {
+  font-size: 0.75em;
+  font-weight: normal;
+}
+
+.card .archive__item:hover .archive__item-title {
+  text-decoration: none;
+}
+
+.card .archive__item p {
+  font-size: 0.92em;
+}
+
+.card .archive__item-abstract {
+  margin-top: 0.6em;
+  font-size: 0.85em;
+  line-height: 1.6;
+  color: var(--global-text-muted-color);
+
+  strong {
+    color: var(--global-heading-color);
   }
 }
 

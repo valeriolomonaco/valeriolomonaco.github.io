@@ -174,13 +174,17 @@
 
 .greedy-nav {
   position: relative;
-  min-width: 250px;
-  background: var(--global-bg-color);
+  min-width: 0;
+  /* room for the absolutely positioned hamburger when every link is collapsed */
+  min-height: 2.5rem;
+  background: transparent;
 
   a {
     display: block;
-    margin: 0 1rem;
-    padding: 0.5rem 0;
+    margin: 0 0 0 1.75rem;
+    padding: 0.4rem 0;
+    font-size: 0.95em;
+    font-weight: 500;
     color: var(--global-masthead-link-color);
     text-decoration: none;
 
@@ -191,19 +195,32 @@
 
   button {
     position: absolute;
-    height: 2.5rem;
+    top: 50%;
     right: 0;
+    height: 2.5rem;
     padding: 0 0.5rem;
     border: 0;
     outline: none;
-    background-color: var(--global-bg-color);
-    color: var(--global-text-color);
+    background-color: transparent;
+    color: var(--global-masthead-link-color);
     cursor: pointer;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
     z-index: 100;
   }
 
+  /* keep the links clear of the hamburger button while it is shown */
+  button:not(.hidden) + .visible-links {
+    margin-right: 3rem;
+  }
+
   .visible-links {
+    margin-left: auto;
     display: table;
+    /* never let the link row widen the page before the script collapses it */
+    max-width: 100%;
+    overflow: hidden;
 
     li {
       display: table-cell;
@@ -222,15 +239,6 @@
       }
     }
 
-    #theme-toggle {
-      a {
-        width: 25px;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-      }
-    }
-
     a {
       position: relative;
 
@@ -240,7 +248,7 @@
         left: 0;
         bottom: 0;
         height: 2px;
-        background: var(--global-text-color-light);
+        background: var(--global-masthead-link-color-hover);
         width: 100%;
         -webkit-transition: $global-transition;
         transition: $global-transition;
@@ -261,7 +269,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    margin-top: 15px;
+    margin-top: 1.2rem;
     padding: 5px;
     border: 1px solid var(--global-border-color);
     border-radius: $border-radius;

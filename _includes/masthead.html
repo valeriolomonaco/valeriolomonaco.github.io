@@ -1,12 +1,10 @@
 {% include base_path %}
 <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__title-row">
-      <a href="{{ base_path }}/" class="masthead__site-title">{{ site.title }}</a>
-    </div>
+    <a href="{{ base_path }}/" class="masthead__site-title">{{ site.title }}</a>
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <button><span class="navicon"></span></button>
+        <button aria-label="Toggle menu"><span class="navicon"></span></button>
         <ul class="visible-links">
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
@@ -14,16 +12,22 @@
             {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item {% if page.url contains link.url and link.url != '/' %}selected{% endif %}">
+            {% assign selected = false %}
+            {% if link.url == '/' %}
+              {% if page.url == '/' or page.url == '/index.html' %}{% assign selected = true %}{% endif %}
+            {% elsif page.url contains link.url %}
+              {% assign selected = true %}
+            {% endif %}
+            <li class="masthead__menu-item{% if selected %} selected{% endif %}">
               <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
             </li>
           {% endfor %}
-          <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
-          </li>
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
+    </div>
+    <div class="masthead__theme-toggle">
+      <a id="theme-toggle" role="button" aria-label="Toggle dark mode"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
     </div>
   </div>
 </div>

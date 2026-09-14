@@ -2,7 +2,7 @@
     DEFAULT THEME - LIGHT VERSION
     ========================================================================== */
 /* Color codes used for the theme */
-$primary-color              : #2f7f93;
+$primary-color              : #1b4f72;
 $gray                       : #7a8288;
 $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
@@ -11,7 +11,7 @@ $lighter-gray               : mix(#fff, $gray, 90%);
 
 /* Color codes used for the site */
 $danger-color               : #ee5f5b;
-$info-color                 : #2f7f93;
+$info-color                 : #1b4f72;
 $notice-color               : #7a8288;
 $success-color              : #62c462;
 $warning-color              : #f89406;
@@ -20,29 +20,55 @@ $warning-color              : #f89406;
 $border-radius              : 4px;
 $box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
 $global-transition          : all 0.2s ease-in-out;
-$masthead-height            : 100px;
+$masthead-height            : 64px;
 $navicon-width              : 28px;
 $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
+/* Site palette: navy structure, warm off-white page, slate text, gold accent.
+   Sass color functions are not evaluated inside custom property values, so
+   every derived color is computed here and interpolated below. */
+$navy-800                   : #163554;   // masthead and footer
+$navy-700                   : $primary-color;
+$navy-500                   : #2a6a99;   // links
+$navy-100                   : #cfdbe6;   // masthead link text
+$paper                      : #f7f5f0;   // page background
+$paper-card                 : #fffdf9;   // cards
+$paper-border               : #e4dfd5;
+$slate-900                  : #1c2b3a;   // headings
+$slate-700                  : #2b3a4a;   // body text
+$slate-500                  : #66758a;   // muted text
+$slate-400                  : #8a97a8;   // light meta text
+$gold                       : #cfa85e;
+$gold-dark                  : #a9823d;
+
 /* Default light theme for the site */
 :root {
     --global-base-color                 : #{$primary-color};
-    --global-bg-color                   : #fff;
-    --global-footer-bg-color            : #f2f3f3;
-    --global-border-color               : #{$lighter-gray};
-    --global-dark-border-color          : #bdc1c4;
-    --global-code-background-color      : #fafafa;
-    --global-code-text-color            : #{$darker-gray};
-    --global-fig-caption-color          : mix(#fff,  #{$dark-gray}, 25%);
-    --global-link-color                 : #52adc8;
-    --global-link-color-hover           : mix(#000, #2f7f93, 25%);
-    --global-link-color-visited         : mix(#fff, #2f7f93, 25%);  
-    --global-masthead-link-color        : #{$dark-gray};
-    --global-masthead-link-color-hover  : mix(#000, #{$gray}, 25%);    
-    --global-text-color                 : #{$dark-gray};
-    --global-text-color-light           : #{$light-gray};
-    --global-thead-color                : #{$lighter-gray};
+    --global-accent-color               : #{$gold};
+    --global-accent-dark-color          : #{$gold-dark};
+    --global-accent-soft-color          : #{rgba($gold, 0.35)};
+    --global-bg-color                   : #{$paper};
+    --global-card-bg-color              : #{$paper-card};
+    --global-card-border-color          : #{$paper-border};
+    --global-footer-bg-color            : #{$navy-800};
+    --global-footer-text-color          : #b8c6d4;
+    --global-border-color               : #{$paper-border};
+    --global-dark-border-color          : #c9c3b8;
+    --global-code-background-color      : #f1efe9;
+    --global-code-text-color            : #{$slate-700};
+    --global-fig-caption-color          : #{$slate-500};
+    --global-heading-color              : #{$slate-900};
+    --global-link-color                 : #{$navy-500};
+    --global-link-color-hover           : #{$navy-700};
+    --global-link-color-visited         : #{$navy-500};
+    --global-masthead-bg-color          : #{$navy-800};
+    --global-masthead-link-color        : #{$navy-100};
+    --global-masthead-link-color-hover  : #fff;
+    --global-masthead-link-color-selected : #fff;
+    --global-text-color                 : #{$slate-700};
+    --global-text-muted-color           : #{$slate-500};
+    --global-text-color-light           : #{$slate-400};
+    --global-thead-color                : #ece8e0;
 }
-

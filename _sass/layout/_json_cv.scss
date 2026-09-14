@@ -14,7 +14,7 @@
 /* Header Styles */
 .cv-header {
   margin-bottom: 2rem;
-  border-bottom: 2px solid var(--global-thead-color );
+  border-bottom: 3px solid var(--global-base-color);
   padding-bottom: 1rem;
 }
 
@@ -62,14 +62,41 @@
   margin-bottom: 2rem;
 }
 
+.cv-section:not(.cv-header) {
+  padding: 1.5rem 1.75rem;
+  background: var(--global-thead-color);
+  border-radius: 8px;
+}
+
 .cv-section h2 {
-  border-bottom: 1px solid var(--global-border-color);
-  padding-bottom: 0.5rem;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   color: var(--global-text-color);
+}
+
+.cv-section:not(.cv-header) > h2 {
+  position: relative;
+  padding-left: 0.75em;
+  padding-bottom: 0.5rem;
+}
+
+.cv-section:not(.cv-header) > h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  bottom: 0.5rem;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--global-base-color);
+}
+
+.cv-header h2 {
+  color: var(--global-base-color);
+  font-weight: 400;
+  font-size: 1.25rem;
 }
 
 .cv-section h2 i {
@@ -79,10 +106,24 @@
 /* Item Styles */
 
 .cv-item {
+  position: relative;
   margin-bottom: 1.5rem;
+  padding-left: 1.25rem;
+}
+
+.cv-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--global-base-color);
 }
 
 .cv-list {
+  position: relative;
   list-style-type: none;
 }
 
@@ -98,7 +139,11 @@
 }
 
 .cv-item-date {
-  color: var(--global-text-color);
+  color: var(--global-base-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .cv-item-subtitle {
@@ -142,10 +187,12 @@
 }
 
 .cv-skill-keyword {
-  background-color: var(--global-bg-color);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  background-color: transparent;
+  color: var(--global-base-color);
+  border: 1px solid var(--global-base-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
 }
 
 /* Project Styles */
@@ -157,11 +204,12 @@
 }
 
 .cv-project-keyword {
-  background-color: var(--global-bg-color);
-  color: var(--global-thead-color);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  background-color: transparent;
+  color: var(--global-base-color);
+  border: 1px solid var(--global-base-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
 }
 
 /* Languages Styles */
@@ -204,10 +252,12 @@
 }
 
 .cv-interest-keyword {
-  background-color: var(--global-bg-color);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  background-color: transparent;
+  color: var(--global-base-color);
+  border: 1px solid var(--global-base-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
 }
 
 /* References Styles */

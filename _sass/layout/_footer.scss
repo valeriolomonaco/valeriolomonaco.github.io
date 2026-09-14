@@ -5,7 +5,7 @@
 .page__footer {
   @include clearfix;
   background-color: var(--global-footer-bg-color);
-  color: var(--global-text-color-light);
+  color: var(--global-footer-text-color);
 
   float: left;
   margin-left: 0;
@@ -16,21 +16,22 @@
   /* keep footer in normal document flow so custom widgets do not overlap content */
   height: auto;
 
-  margin-top: 3em;
+  margin-top: 4em;
 
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
   -webkit-animation-delay: 0.45s;
           animation-delay: 0.45s;
-  border-top: 1px solid var(--global-dark-border-color);
+  border-top: 0;
 
   footer {
     @include clearfix;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1em;
+    margin-top: 0;
     max-width: 100%;
-    padding: 0 1em 1em;
+    padding: 2em 1em;
+    text-align: center;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -50,7 +51,7 @@
   .fab,
   .far,
   .fal {
-    color: var(--global-text-color-light);
+    color: inherit;
   }
 }
 

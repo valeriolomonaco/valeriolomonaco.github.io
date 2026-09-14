@@ -2,6 +2,25 @@
 
 <!-- start custom head snippets -->
 
+<!-- Theme bootstrap: light is the default for everyone; a saved "dark" choice is
+     applied before first paint so there is no flash of the wrong theme. -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t !== "dark" && t !== "light") { localStorage.setItem("theme", "light"); t = "light"; }
+      if (t === "dark") { document.documentElement.setAttribute("data-theme", "dark"); }
+    } catch (e) {}
+  })();
+</script>
+
+<!-- Web fonts: Source Serif 4 (headings) and Inter (text). Every font-family rule in
+     the stylesheet carries system fallbacks, and display=swap renders text in the
+     fallback immediately if these fail to load. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap"/>
+
 <!-- Support for Academicons -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
 
