@@ -5,7 +5,7 @@ Personal academic website of Valerio Lo Monaco (University of Bergamo), served b
 ## Where things live
 
 - `_config.yml`: site title, sidebar profile, links and social-sharing settings
-- `_pages/`: the About, Publications and Privacy pages
+- `_pages/`: the About, Research (`publications.html`), Teaching and Privacy pages
 - `_publications/`: one Markdown file per publication
 - `_data/navigation.yml`: the links in the navigation bar
 - `images/`: profile photo and favicons

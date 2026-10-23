@@ -3,8 +3,10 @@
 main:
   - title: "About"
     url: /
-  - title: "Publications"
-    url: /publications/
+  - title: "Research"
+    url: /research/
+  - title: "Teaching"
+    url: /teaching/
   # Hidden until the page has content. Uncomment to show it again.
   # - title: "Code"
   #   url: /code/

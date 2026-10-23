@@ -2,11 +2,14 @@
 layout: archive
 title: "Teaching"
 permalink: /teaching/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<section class="card">
+  <h2 class="card__title">Courses</h2>
+  {% for post in site.teaching reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+</section>
