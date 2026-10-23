@@ -15,7 +15,8 @@
           animation-delay: 0.15s;
   z-index: 20;
 
-  /* one row: site title on the left, navigation and theme toggle on the right */
+  /* top row: site title on the left, theme toggle on the right;
+     the navigation sits in its own bar below (.masthead__nav-bar) */
   &__inner-wrap {
     display: flex;
     align-items: center;
@@ -51,19 +52,29 @@
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 1.125em;
+  font-size: 1.3em;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--global-masthead-link-color-selected);
   white-space: nowrap;
 
   @include breakpoint(max-width $small) {
-    font-size: 1.05em;
+    font-size: 1.15em;
   }
 
   &:hover {
     color: var(--global-masthead-link-color-hover);
   }
+}
+
+/* second bar: a slightly lighter band under the title row, links on the left */
+.masthead__nav-bar {
+  background: rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.masthead__inner-wrap--nav {
+  min-height: 2.75rem;
 }
 
 .masthead__menu {
@@ -75,6 +86,10 @@
     padding: 0;
     list-style-type: none;
   }
+}
+
+.masthead__nav-bar .greedy-nav .visible-links {
+  margin-left: 0;
 }
 
 .masthead__menu-item {
@@ -105,6 +120,7 @@
 
 .masthead__theme-toggle {
   flex: 0 0 auto;
+  margin-left: auto;
 
   a {
     display: flex;

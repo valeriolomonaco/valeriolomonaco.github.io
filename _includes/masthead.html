@@ -2,32 +2,36 @@
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <a href="{{ base_path }}/" class="masthead__site-title">{{ site.title }}</a>
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button aria-label="Toggle menu"><span class="navicon"></span></button>
-        <ul class="visible-links">
-          {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-            {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            {% assign selected = false %}
-            {% if link.url == '/' %}
-              {% if page.url == '/' or page.url == '/index.html' %}{% assign selected = true %}{% endif %}
-            {% elsif page.url contains link.url %}
-              {% assign selected = true %}
-            {% endif %}
-            <li class="masthead__menu-item{% if selected %} selected{% endif %}">
-              <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
     <div class="masthead__theme-toggle">
       <a id="theme-toggle" role="button" aria-label="Toggle dark mode"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
+    </div>
+  </div>
+  <div class="masthead__nav-bar">
+    <div class="masthead__inner-wrap masthead__inner-wrap--nav">
+      <div class="masthead__menu">
+        <nav id="site-nav" class="greedy-nav">
+          <button aria-label="Toggle menu"><span class="navicon"></span></button>
+          <ul class="visible-links">
+            {% for link in site.data.navigation.main %}
+              {% if link.url contains 'http' %}
+                {% assign domain = '' %}
+              {% else %}
+                {% assign domain = base_path %}
+              {% endif %}
+              {% assign selected = false %}
+              {% if link.url == '/' %}
+                {% if page.url == '/' or page.url == '/index.html' %}{% assign selected = true %}{% endif %}
+              {% elsif page.url contains link.url %}
+                {% assign selected = true %}
+              {% endif %}
+              <li class="masthead__menu-item{% if selected %} selected{% endif %}">
+                <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+          <ul class="hidden-links hidden"></ul>
+        </nav>
+      </div>
     </div>
   </div>
 </div>

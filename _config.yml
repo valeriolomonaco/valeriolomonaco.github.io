@@ -22,7 +22,7 @@ repository               : "valeriolomonaco/valeriolomonaco.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile2.jpg"
+  avatar           : "profile3.jpg"
   name             : "Valerio Lo Monaco, PhD"
   pronouns         : # example: "she/her"  
   bio              : "Researcher in Finance, Management, Entrepreneurship, Innovation"
@@ -142,7 +142,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : "/images/profile2.jpg"  # Social media default site image
+og_image                 : "profile3.jpg"  # Social media default site image, file name in /images/
 og_description           : "Researcher in Finance, Management, Entrepreneurship, and Innovation at the University of Bergamo"  # Social media default site description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
@@ -183,6 +183,7 @@ exclude:
   - CHANGELOG
   - Capfile
   - config
+  - docker-compose.yaml
   - Dockerfile
   - Gemfile
   - Gruntfile.js
@@ -190,10 +191,13 @@ exclude:
   - LICENSE
   - local
   - log
+  - markdown_generator
   - node_modules
   - package.json*
   - Rakefile
   - README
+  - README.md
+  - scripts
   - tmp
   - vendor
 keep_files:
