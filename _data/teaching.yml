@@ -1,0 +1,29 @@
+# Courses shown on the Teaching page (/teaching/), most recent first.
+# Each course appears once per role. "years" lists every academic year taught,
+# most recent first; each one is shown on its own row on the right,
+# printed as "Academic year 2026–2027".
+
+lecturer:
+  - course: "Blockchain and Digital Finance"
+    university: "University of Bergamo"
+    years: ["2026–2027"]
+  - course: "Advanced Corporate Finance"
+    university: "University of Bergamo"
+    years: ["2025–2026"]
+  - course: "Managerial Finance"
+    university: "University of Bergamo"
+    years: ["2025–2026"]
+
+teaching_assistant:
+  - course: "Fintech and Digital Finance"
+    university: "University of Bergamo"
+    years: ["2026–2027", "2024–2025"]
+  - course: "Advanced Corporate Finance"
+    university: "University of Bergamo"
+    years: ["2025–2026", "2024–2025", "2023–2024"]
+  - course: "Blockchain and Digital Finance"
+    university: "University of Bergamo"
+    years: ["2025–2026", "2024–2025", "2023–2024"]
+  - course: "Corporate Finance and Financial Innovation"
+    university: "University of Bergamo"
+    years: ["2022–2023"]

@@ -1,0 +1,500 @@
+/* ==========================================================================
+   PERSONAL STYLE KIT OVERLAY
+   Maps the kit (D:/0 BATCH PRESENTATION STYLE: tokens.json, style.css,
+   STYLE_GUIDE.md, 3 November 2026) onto the academicpages template:
+   Manrope with Courier Prime labels, navy titles with a 1 px blue rule,
+   a 7 px blue square before titles, sharp rectangles, hairlines, booktabs
+   tables, no shadows or animations. Colours live in theme/_default_light.scss
+   and theme/_default_dark.scss; fonts in _themes.scss. Imported last from
+   assets/css/main.scss so it wins over the template rules.
+   ========================================================================== */
+
+/* Self-hosted fonts (SIL Open Font License, assets/fonts/kit/OFL.txt).
+   No font service is contacted. */
+@font-face { font-family: "Manrope"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("/assets/fonts/kit/Manrope-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Manrope"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("/assets/fonts/kit/Manrope-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Manrope"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("/assets/fonts/kit/Manrope-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Manrope"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("/assets/fonts/kit/Manrope-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Courier Prime"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("/assets/fonts/kit/CourierPrime-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Courier Prime"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("/assets/fonts/kit/CourierPrime-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Courier Prime"; font-weight: 400; font-style: italic; font-display: swap;
+  src: url("/assets/fonts/kit/CourierPrime-Italic.ttf") format("truetype"); }
+@font-face { font-family: "Courier Prime"; font-weight: 700; font-style: italic; font-display: swap;
+  src: url("/assets/fonts/kit/CourierPrime-BoldItalic.ttf") format("truetype"); }
+
+$kit-mark: 7px;   // the square before titles
+
+/* the square mark, reused before every title */
+@mixin kit-mark($valign: 0.3em) {
+  content: "";
+  display: inline-block;
+  width: $kit-mark;
+  height: $kit-mark;
+  margin-right: 12px;
+  vertical-align: $valign;
+  background: var(--global-accent-color);
+}
+
+/*
+   Base
+   ========================================================================== */
+
+html {
+  font-size: 17px;
+
+  @include breakpoint($medium) {
+    font-size: 18px;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* calm: no intro fades */
+.masthead,
+.breadcrumbs,
+#main,
+.sidebar,
+.page__footer {
+  -webkit-animation: none;
+          animation: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+a {
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--global-border-color);
+}
+
+blockquote {
+  border-left: 2px solid var(--global-accent-color);
+}
+
+code {
+  font-size: 0.875em;
+  background: var(--global-code-background-color);
+}
+
+pre {
+  border-left: 2px solid var(--global-accent-color);
+  border-radius: 0;
+}
+
+ul {
+  list-style: square;
+}
+
+li::marker {
+  color: var(--global-accent-color);
+}
+
+/*
+   Masthead: navy, site title after a blue square, mono navigation labels
+   ========================================================================== */
+
+.masthead {
+  box-shadow: none;
+}
+
+.masthead__site-title {
+  font-weight: 600;
+
+  &::before {
+    @include kit-mark(0.2em);
+  }
+}
+
+/* second row: same navy, separated by a hairline, no band */
+.masthead__nav-bar {
+  background: transparent;
+  border-top: 1px solid rgba(220, 231, 245, 0.25);
+}
+
+.greedy-nav {
+  a {
+    font-family: $monospace;
+    font-size: 0.9em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .visible-links a:before {
+    height: 1px;
+  }
+
+  .masthead__menu-item.selected a {
+    font-weight: 400;
+  }
+
+  .hidden-links {
+    border-radius: 0;
+    box-shadow: none;
+
+    /* the dropdown sits on the page background, not the navy bar, so its
+       links use the page text colour instead of the pale masthead colour */
+    a {
+      font-family: $monospace;
+      color: var(--global-text-color);
+
+      &:hover {
+        color: var(--global-accent-color);
+      }
+    }
+  }
+}
+
+.masthead__theme-toggle a {
+  border-radius: 0;
+
+  &:hover {
+    background: rgba(220, 231, 245, 0.15);
+  }
+}
+
+/*
+   Page title: square mark, navy, 1 px blue rule under it
+   ========================================================================== */
+
+.page__title {
+  margin-bottom: 1.1em;
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  font-weight: 600;
+  line-height: 1.15;
+  border-bottom: 1px solid var(--global-accent-color);
+
+  &::before {
+    @include kit-mark(0.35em);
+  }
+
+  &::after {
+    content: none;
+    display: none;
+  }
+}
+
+/* running text: justified with hyphenation, as the kit's web pages */
+.page__content {
+  p, li {
+    text-align: justify;
+    -webkit-hyphens: auto;
+            hyphens: auto;
+    text-wrap: pretty;
+  }
+
+  h2 {
+    padding-left: 0;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid var(--global-accent-color);
+
+    &::before {
+      content: none;
+    }
+  }
+
+  h3 {
+    color: var(--global-text-color);
+  }
+
+  a:hover img {
+    box-shadow: none;
+  }
+}
+
+.page__citation {
+  font-family: $monospace;
+  font-size: 0.8em;
+  color: var(--global-text-muted-color);
+}
+
+/*
+   Cards: hairline rectangle with a 2 px blue top edge
+   ========================================================================== */
+
+.card {
+  border: 1px solid var(--global-card-border-color);
+  border-top: 2px solid var(--global-accent-color);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.card__title {
+  gap: 0;
+  font-weight: 600;
+
+  &::before {
+    width: $kit-mark;
+    height: $kit-mark;
+    margin-right: 12px;
+    border-radius: 0;
+    background: var(--global-accent-color);
+  }
+}
+
+/* archive entries: mono year in the gutter, mono [link] marker */
+.archive__subtitle {
+  padding-left: 0;
+  border-bottom: 1px solid var(--global-accent-color);
+
+  &::before {
+    content: none;
+  }
+}
+
+.archive__item-year {
+  font-family: $monospace;
+  font-size: 0.85em;
+  font-weight: 400;
+  color: var(--global-accent-color);
+  border-right: 1px solid var(--global-border-color);
+
+  @include breakpoint(max-width $small) {
+    border-right: 0;
+  }
+}
+
+/* Teaching page: course on the left, academic years in a right-hand column,
+   one per row, muted like the Research years */
+.teaching__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+
+  .archive__item-body {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.card .teaching__years {
+  flex-shrink: 0;
+  margin: 0.2em 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: $monospace;
+  font-size: 0.8em;
+  line-height: 1.7;
+  color: var(--global-text-muted-color);
+  white-space: nowrap;
+
+  li {
+    margin: 0;
+    text-align: right;
+  }
+}
+
+/* phones: "Academic year ..." is too wide to sit beside the course, so the
+   years drop below it, left-aligned */
+@include breakpoint(max-width $small) {
+  .teaching__item {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .card .teaching__years {
+    margin-top: 0;
+
+    li {
+      text-align: left;
+    }
+  }
+}
+
+/* About and Collaborations: one large lead line, then numbered areas
+   (mono label, short line of larger text), separated by hairlines */
+.page__content p.lead,
+.archive p.lead {
+  margin: 0 0 1.6rem;
+  font-size: 1.45em;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: left;
+  color: var(--global-heading-color);
+}
+
+.areas {
+  margin: 0 0 1.6rem;
+  border-top: 1px solid var(--global-border-color);
+}
+
+.areas__item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--global-border-color);
+}
+
+.areas p.areas__label {
+  margin: 0 0 0.35rem;
+  font-family: $monospace;
+  font-size: 0.8em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--global-accent-color);
+}
+
+.areas p.areas__text {
+  margin: 0;
+  font-size: 1.2em;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--global-text-color);
+}
+
+.page__content p.areas__contact,
+.archive p.areas__contact {
+  font-size: 1.1em;
+  text-align: left;
+}
+
+.archive__item-link {
+  font-family: $monospace;
+  font-size: 0.75em;
+}
+
+.card .archive__item-abstract {
+  text-align: justify;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+}
+
+/* narrow columns stay left-aligned, as in the kit: justification opens rivers on a phone */
+@include breakpoint(max-width $small) {
+  .page__content p,
+  .page__content li,
+  .card .archive__item-abstract {
+    text-align: left;
+  }
+}
+
+.archive__item:hover .archive__item-teaser {
+  box-shadow: none;
+}
+
+.archive__item-teaser {
+  border-radius: 0;
+}
+
+/*
+   Sidebar and author profile: square photo in a hairline frame, blue icons
+   ========================================================================== */
+
+.author__avatar {
+  border: 1px solid var(--global-border-color);
+  border-radius: 0;
+  box-shadow: none;
+
+  @include breakpoint($large) {
+    box-shadow: none;
+  }
+}
+
+.sidebar .author__name {
+  font-weight: 600;
+}
+
+.sidebar .author__urls.social-icons {
+  .fa, .fas, .fab, .far, .ai {
+    color: var(--global-accent-color);
+  }
+}
+
+.author__urls {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/*
+   Buttons, notices, pagination: sharp
+   ========================================================================== */
+
+.btn {
+  font-weight: 500;
+  border-radius: 0;
+  background-color: var(--global-accent-color);
+
+  &:hover {
+    background-color: var(--global-heading-color);
+  }
+
+  /* the Follow button on narrow screens: the kit's secondary button */
+  &--inverse {
+    color: var(--global-accent-color) !important;
+    border: 1px solid var(--global-accent-color) !important;
+    background-color: var(--global-bg-color);
+
+    &:hover {
+      color: var(--global-bg-color) !important;
+      background-color: var(--global-accent-color);
+    }
+  }
+}
+
+.notice,
+.toc,
+.pagination li a,
+.pagination--pager {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/*
+   Tables: booktabs, no fills, no vertical lines
+   ========================================================================== */
+
+table {
+  font-size: 0.95em;
+  border: 0;
+  border-top: 1.5px solid var(--global-heading-color);
+  border-bottom: 1.5px solid var(--global-heading-color);
+}
+
+thead {
+  background-color: transparent;
+  border-bottom: 1px solid var(--global-heading-color);
+}
+
+th {
+  font-weight: 600;
+  border-right: 0;
+}
+
+td {
+  border-right: 0;
+  border-bottom: 0;
+}
+
+/*
+   Footer: navy, mono
+   ========================================================================== */
+
+.page__footer {
+  border-top: 0;
+}
+
+.page__footer-custom {
+  font-family: $monospace;
+  font-size: 0.8em;
+  color: var(--global-footer-text-color);
+}

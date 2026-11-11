@@ -7,6 +7,10 @@ main:
     url: /research/
   - title: "Teaching"
     url: /teaching/
+  - title: "Data"
+    url: /data/
+  - title: "Collaborations"
+    url: /collaborations/
   # Hidden until the page has content. Uncomment to show it again.
   # - title: "Code"
   #   url: /code/

@@ -7,16 +7,22 @@ redirect_from:
   - /about.html
 ---
 
-Welcome, and thank you for visiting!
+<p class="lead">I study how technology is reshaping entrepreneurial finance.</p>
 
-My research examines how technological innovation reshapes entrepreneurial finance in digital finance capital markets.
-I focus on three main areas: 
-
-1. Equity crowdfunding - how investors process information, conduct due diligence, and respond to social signals on digital platforms
-
-2. Decentralized finance - governance, coordination, and value creation in blockchain-based markets and organizations
-
-3. Artificial intelligence - how AI changes information production, screening, and decision-making in capital markets
+<div class="areas">
+  <div class="areas__item">
+    <p class="areas__label">01 &middot; Artificial intelligence</p>
+    <p class="areas__text">How AI changes screening, information and decisions in capital markets.</p>
+  </div>
+  <div class="areas__item">
+    <p class="areas__label">02 &middot; Decentralized finance</p>
+    <p class="areas__text">Governance and value creation in blockchain-based markets.</p>
+  </div>
+  <div class="areas__item">
+    <p class="areas__label">03 &middot; Equity crowdfunding</p>
+    <p class="areas__text">How investors read information and signals on digital platforms.</p>
+  </div>
+</div>
 
 &nbsp;
 

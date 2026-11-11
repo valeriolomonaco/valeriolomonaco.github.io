@@ -7,9 +7,41 @@ author_profile: false
 
 {% include base_path %}
 
+{% comment %}
+  Courses come from _data/teaching.yml: one list per role.
+  Each course shows its academic years in a right-hand column, one per row.
+{% endcomment %}
+
 <section class="card">
-  <h2 class="card__title">Courses</h2>
-  {% for post in site.teaching reversed %}
-    {% include archive-single.html %}
+  <h2 class="card__title">Lecturer</h2>
+  {% for item in site.data.teaching.lecturer %}
+  <div class="list__item">
+    <article class="archive__item teaching__item">
+      <div class="archive__item-body">
+        <h2 class="archive__item-title"><strong>{{ item.course }}</strong></h2>
+        <p style="margin: 0.2em 0;">{{ item.university }}</p>
+      </div>
+      <ul class="teaching__years">
+        {% for year in item.years %}<li>Academic year {{ year }}</li>{% endfor %}
+      </ul>
+    </article>
+  </div>
+  {% endfor %}
+</section>
+
+<section class="card">
+  <h2 class="card__title">Teaching Assistant</h2>
+  {% for item in site.data.teaching.teaching_assistant %}
+  <div class="list__item">
+    <article class="archive__item teaching__item">
+      <div class="archive__item-body">
+        <h2 class="archive__item-title"><strong>{{ item.course }}</strong></h2>
+        <p style="margin: 0.2em 0;">{{ item.university }}</p>
+      </div>
+      <ul class="teaching__years">
+        {% for year in item.years %}<li>Academic year {{ year }}</li>{% endfor %}
+      </ul>
+    </article>
+  </div>
   {% endfor %}
 </section>

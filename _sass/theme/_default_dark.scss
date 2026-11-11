@@ -1,34 +1,37 @@
 /* ==========================================================================
     DEFAULT THEME - DARK VERSION
+    The kit's dark surfaces: the navy of the opening and closing slides,
+    white text, light-blue secondary text, blue accent marks and rules.
     ========================================================================== */
 
+/* Kit tokens */
+$ink                        : #13294B;
+$ink-deep                   : #0F2240;
+$blue                       : #3C62B3;
+$blue-light                 : #DCE7F5;
+$white                      : #FFFFFF;
+$green                      : #2F7D5B;
+$red                        : #B3362F;
+$orange                     : #CC7318;
+$hairline                   : rgba($blue-light, 0.25);   // hairlines on navy
+
 /* Color codes used for the theme */
-$primary-color              : #569cd6;
+$primary-color              : $blue;
 $gray                       : #7a8288;
 $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
 
-/* Charcoal editor palette */
-$background                 : #1e1e1e;   // page
-$background-light           : #252526;   // cards
-$background-lighter         : #2d2d2d;   // table heads, code
-$background-darker          : #161616;   // masthead and footer
-$text                       : #d4d4d4;
-$link                       : #6cb6ff;
-$link-dark                  : #4a9eea;
-$link-light                 : #9cdcfe;
-
 /* Color codes used for the site */
-$danger-color               : #ee5f5b;
-$info-color                 : #569cd6;
-$notice-color               : #7a8288;
-$success-color              : #62c462;
-$warning-color              : #f89406;
+$danger-color               : $red;
+$info-color                 : $blue;
+$notice-color               : $blue-light;
+$success-color              : $green;
+$warning-color              : $orange;
 
-/* Other basic settings for the template */
-$border-radius              : 4px;
-$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+/* Other basic settings for the template: sharp rectangles, no shadows */
+$border-radius              : 0;
+$box-shadow                 : none;
 $global-transition          : all 0.2s ease-in-out;
 $masthead-height            : 64px;
 $navicon-width              : 28px;
@@ -36,37 +39,34 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
-/* Derived colors (computed once, then interpolated below -- Sass color
-   functions like mix() are not evaluated inside a custom property value) */
-$gold                       : #d9b46f;
-$gold-dark                  : #c9a45c;
-
 /* Dark theme for the site */
 html[data-theme="dark"] {
-    --global-base-color                 : #{$primary-color};
-    --global-accent-color               : #{$gold};
-    --global-accent-dark-color          : #{$gold-dark};
-    --global-accent-soft-color          : #{rgba($gold, 0.35)};
-    --global-bg-color                   : #{$background};
-    --global-card-bg-color              : #{$background-light};
-    --global-card-border-color          : #3a3a3a;
-    --global-footer-bg-color            : #{$background-darker};
-    --global-footer-text-color          : #9a9a9a;
-    --global-border-color               : #3a3a3a;
-    --global-dark-border-color          : #4a4a4a;
-    --global-code-background-color      : #{$background-lighter};
-    --global-code-text-color            : #{$text};
-    --global-fig-caption-color          : #a0a0a0;
-    --global-heading-color              : #eaeaea;
-    --global-link-color                 : #{$link};
-    --global-link-color-hover           : #{$link-light};
-    --global-link-color-visited         : #{$link};
-    --global-masthead-bg-color          : #{$background-darker};
-    --global-masthead-link-color        : #c8c8c8;
-    --global-masthead-link-color-hover  : #fff;
-    --global-masthead-link-color-selected : #fff;
-    --global-text-color                 : #{$text};
-    --global-text-muted-color           : #a6a6a6;
-    --global-text-color-light           : #8c8c8c;
-    --global-thead-color                : #{$background-lighter};
+    --global-base-color                 : #{$blue};
+    --global-accent-color               : #{$blue};
+    --global-accent-dark-color          : #{$blue-light};
+    --global-accent-soft-color          : #{$hairline};
+    --global-bg-color                   : #{$ink-deep};
+    --global-card-bg-color              : #{$ink};
+    --global-card-border-color          : #{$hairline};
+    --global-footer-bg-color            : #{$ink-deep};
+    --global-footer-text-color          : #{$blue-light};
+    --global-border-color               : #{$hairline};
+    --global-dark-border-color          : #{$blue-light};
+    --global-code-background-color      : #{$ink};
+    --global-code-text-color            : #{$white};
+    --global-fig-caption-color          : #{$blue-light};
+    --global-heading-color              : #{$white};
+    --global-link-color                 : #{$blue-light};
+    --global-link-color-hover           : #{$white};
+    --global-link-color-visited         : #{$blue-light};
+    --global-masthead-bg-color          : #{$ink-deep};
+    --global-masthead-link-color        : #{$blue-light};
+    --global-masthead-link-color-hover  : #{$white};
+    --global-masthead-link-color-selected : #{$white};
+    --global-text-color                 : #{$white};
+    --global-text-muted-color           : #{$blue-light};
+    --global-text-color-light           : #{$blue-light};
+    --global-thead-color                : #{$ink};
+    --global-toc-bg-color               : #{$ink};
+    --global-surface-color              : #{$ink};
 }
